@@ -1,24 +1,19 @@
-package pl.siwiec.present;
+package pl.siwiec.groups;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.siwiec.users.User;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
-public class Present {
-
+public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String title;
+    private String name;
     private String description;
-    private int rainting;
-    @ManyToOne
-    private User user;
 
 
 }

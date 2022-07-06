@@ -16,6 +16,7 @@
 <body>
 <h1><spring:message code="app.title"/></h1>
 
-<a href="<c:url  value="/present/list"/> ">Lista prezentow </a> <br>
+<a href="<c:url  value="/user/add"/> ">rejstracja</a> <br>
+<a href="<c:url value="/user"/>">przejsicie</a>
 </body>
 </html>

@@ -3,8 +3,9 @@
 <form:hidden path="id"/>
 
 <label>
-    title: <form:input path="title"/>
-    description: <form:input path="description"/>
+    title: <form:input path="title"/><br>
+    description: <form:input path="description"/><br>
+    rainting: <form:input path="rainting"/><br>
 </label>
 
 

@@ -15,7 +15,7 @@
 <body>
 <h1>Edytuj present</h1>
 <form:form method="post" modelAttribute="present">
-    <%@include file = "_form.jsp"%>
+    <%@include file = "present_form.jsp"%>
     <input type="submit" value="Update">
 </form:form>
 </body>

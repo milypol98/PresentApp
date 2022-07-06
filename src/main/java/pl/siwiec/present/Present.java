@@ -18,5 +18,7 @@ public class Present {
     private long id;
     private String title;
     private String description;
+    private int rainting;
+
 
 }

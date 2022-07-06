@@ -2,10 +2,14 @@ package pl.siwiec.users;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.siwiec.staticsEnum.Role;
+
+
+import pl.siwiec.role.Role;
 import pl.siwiec.staticsEnum.Sex;
 
 import javax.persistence.*;
+import java.util.Set;
+
 
 @Entity
 @Getter
@@ -14,14 +18,21 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String username;
     private String email;
+
     private String password;
     private String name;
     private String surname;
     private int age;
     private Sex sex;
-    private Role role;
+    private int enabled;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+    //private Role role;
 //    @ManyToMany
 //    private List<Groups> groups = new ArrayList<>();
 

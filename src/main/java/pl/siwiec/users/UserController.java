@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.siwiec.present.Present;
+import pl.siwiec.admin.UserService;
 import pl.siwiec.present.PresentRepository;
 
 @Controller
@@ -13,11 +13,13 @@ import pl.siwiec.present.PresentRepository;
 public class UserController {
     private final UserRepository userRepository;
     private final PresentRepository presentRepository;
+    private final UserService userService;
 
 
-    public UserController(UserRepository userRepository, PresentRepository presentRepository) {
+    public UserController(UserRepository userRepository, PresentRepository presentRepository, UserService userService) {
         this.userRepository = userRepository;
         this.presentRepository = presentRepository;
+        this.userService = userService;
     }
     @RequestMapping (method = RequestMethod.GET)
     public String home(Model model) {
@@ -39,7 +41,7 @@ public class UserController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String save(User user  ) {
-        userRepository.save(user);
+        userService.saveUser(user);
         return "redirect:/user/list";
     }
 

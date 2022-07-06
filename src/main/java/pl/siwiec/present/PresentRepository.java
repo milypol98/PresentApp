@@ -9,7 +9,11 @@ import java.util.List;
 
 public interface PresentRepository extends JpaRepository<Present, Long> {
 
-    @Query(value = "select * from present order by rainting asc limit 5 ", nativeQuery = true )
-    List<Present> lastFive () ;
+//    @Query(value = "select * from present order by rainting asc limit 5 ", nativeQuery = true )
+//    List<Present> lastFive () ;
+
+
+    @Query(value = "select * from present where user_id = ?", nativeQuery = true )
+    List<Present> elementUser (long user_id) ;
 
 }

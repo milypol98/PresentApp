@@ -1,10 +1,13 @@
 package pl.siwiec.users;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.siwiec.admin.CurrentUser;
+import pl.siwiec.admin.LoginController;
 import pl.siwiec.admin.UserService;
 import pl.siwiec.present.PresentRepository;
 
@@ -15,15 +18,20 @@ public class UserController {
     private final PresentRepository presentRepository;
     private final UserService userService;
 
+    private final LoginController loginController;
 
-    public UserController(UserRepository userRepository, PresentRepository presentRepository, UserService userService) {
+
+    public UserController(UserRepository userRepository, PresentRepository presentRepository, UserService userService, LoginController loginController) {
         this.userRepository = userRepository;
         this.presentRepository = presentRepository;
         this.userService = userService;
+        this.loginController = loginController;
     }
     @RequestMapping (method = RequestMethod.GET)
-    public String home(Model model) {
-        model.addAttribute("user" , presentRepository.lastFive());
+    public String home(@AuthenticationPrincipal CurrentUser customUser,Model model) {
+        User entityUser = customUser.getUser();
+        model.addAttribute("present" , presentRepository.elementUser(entityUser.getId()));
+        System.out.println(entityUser.getId()+"chuj ci na kurwe");
         return "userJsp/UserHomePage";
 
     }

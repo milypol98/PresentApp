@@ -13,7 +13,8 @@
 </head>
 <body>
 <table>
-    <a href="<c:url  value="/event/add"/> ">Dodaj Autora </a>
+    <a href="<c:url  value="/event/add"/> ">Dodaj Event </a><br/>
+    <a href="<c:url  value="/user/"/> ">Strona gówna  </a>
     <tr>
         <th>title</th>
         <th>description</th>

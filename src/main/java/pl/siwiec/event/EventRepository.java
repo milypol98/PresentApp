@@ -9,5 +9,5 @@ import java.util.List;
 public interface EventRepository extends JpaRepository<Event, Long> {
 
     @Query(value = "select * from event where user_id = ?", nativeQuery = true )
-    List<Present> eventUser (long user_id) ;
+    List<Event> eventUser (long user_id) ;
 }

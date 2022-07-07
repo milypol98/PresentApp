@@ -22,8 +22,8 @@ public class EventController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(@AuthenticationPrincipal CurrentUser customUser, Model model) {
         User entityUser = customUser.getUser();
-        model.addAttribute("present",eventRepository.eventUser(entityUser.getId()));
-        return "presentJsp/list";
+        model.addAttribute("event",eventRepository.eventUser(entityUser.getId()));
+        return "eventJsp/list";
     }
 
 //    @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -38,7 +38,9 @@ public class EventController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save(Event event  ) {
+    public String save(@AuthenticationPrincipal CurrentUser customUser,Event event  ) {
+        User entityUser = customUser.getUser();
+        event.setUser(entityUser);
         eventRepository.save(event);
         return "redirect:/event/list";
     }

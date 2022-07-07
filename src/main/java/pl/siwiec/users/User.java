@@ -4,10 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+import pl.siwiec.groups.AppGroup;
 import pl.siwiec.role.Role;
 import pl.siwiec.staticsEnum.Sex;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -32,9 +35,10 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+    @ManyToMany
+    private List<AppGroup> appGroups = new ArrayList<>();
     //private Role role;
-//    @ManyToMany
-//    private List<Groups> groups = new ArrayList<>();
+
 
 
 

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><html>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -18,6 +18,6 @@
     <%@include file = "user_form.jsp"%>
     <input type="submit" value="Update">
 </form:form>
-
+<a href="<c:url  value="/user/removeUser"/> ">Usuń </a>
 </body>
 </html>

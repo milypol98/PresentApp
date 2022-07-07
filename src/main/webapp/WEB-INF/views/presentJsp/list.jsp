@@ -13,7 +13,9 @@
 </head>
 <body>
 <table>
-    <a href="<c:url  value="/present/add"/> ">Dodaj Autora </a>
+    <a href="<c:url  value="/present/add"/> ">Dodaj Prezent </a>
+    <br/>
+    <a href="<c:url  value="/user/"/> ">Strona gówna  </a>
     <tr>
         <th>title</th>
         <th>description</th>

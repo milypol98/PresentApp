@@ -13,11 +13,18 @@
 </head>
 <body>
 <H1>WITAJ</H1>
+<form action="<c:url value="/logout"/>" method="post">
+    <input class="fa fa-id-badge" type="submit" value="Wyloguj">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
+<br>
 <a href="<c:url  value="/event/list"/> ">moje eventy </a>
 <br/>
 <a href="<c:url  value="/present/list"/> ">moje prezenty </a>
 <br/>
 <a href="<c:url  value="/user/list"/> ">moji uzytkownicy </a>
+
+
 <table>
     <tr>
         <th>title</th>
@@ -32,6 +39,9 @@
         </tr>
     </c:forEach>
 </table>
+<br/>
+<a href="<c:url  value="/user/editUser"/> ">Ustawienia konta  </a>
+
 
 </body>
 </html>

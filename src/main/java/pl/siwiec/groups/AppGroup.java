@@ -1,25 +1,20 @@
-package pl.siwiec.event;
+package pl.siwiec.groups;
 
 import lombok.Getter;
 import lombok.Setter;
-import pl.siwiec.users.User;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 @Getter
 @Setter
-public class Event {
+
+public class AppGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String title;
+    private String name;
     private String description;
-    private String location;
-    private Date date;
-    @ManyToOne
-    private User user;
 
 
 

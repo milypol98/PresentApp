@@ -7,6 +7,7 @@ import pl.siwiec.present.Present;
 import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
-//    @Query(value = "select * from event order by date asc  ", nativeQuery = true )
-//    List<Present> sortedAsc () ;
+
+    @Query(value = "select * from event where user_id = ?", nativeQuery = true )
+    List<Present> eventUser (long user_id) ;
 }

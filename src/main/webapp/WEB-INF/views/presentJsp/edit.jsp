@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -14,6 +15,7 @@
 </head>
 <body>
 <h1>Edytuj present</h1>
+<a href="<c:url  value="/user/"/> ">Strona gówna  </a>
 <form:form method="post" modelAttribute="present">
     <%@include file = "present_form.jsp"%>
     <input type="submit" value="Update">

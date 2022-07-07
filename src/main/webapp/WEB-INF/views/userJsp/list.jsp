@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
@@ -32,11 +33,13 @@
             <td>${user.email}</td>
             <td>${user.username}</td>
             <td>${user.password}</td>
-            <td>${user.role}</td>
+            <td>${user.roles}</td>
             <td>${user.sex}</td>
 
-            <td><a href="<c:url  value="/user/remove?id=${user.id}"/> ">Usuń </a>
-                <a href="<c:url  value="/user/edit?id=${user.id}"/> ">Edytuj </a>
+
+
+            <td><a href="<c:url  value="/admin/remove?id=${user.id}"/> ">Usuń </a>
+                <a href="<c:url  value="/admin/edit?id=${user.id}"/> ">Edytuj </a>
             </td>
 
         </tr>

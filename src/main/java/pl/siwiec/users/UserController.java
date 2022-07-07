@@ -31,7 +31,7 @@ public class UserController {
     public String home(@AuthenticationPrincipal CurrentUser customUser,Model model) {
         User entityUser = customUser.getUser();
         model.addAttribute("present" , presentRepository.elementUser(entityUser.getId()));
-        System.out.println(entityUser.getId()+"chuj ci na kurwe");
+        System.out.println(entityUser.getId());
         return "userJsp/UserHomePage";
 
     }

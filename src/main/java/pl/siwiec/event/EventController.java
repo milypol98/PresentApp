@@ -19,6 +19,8 @@ public class EventController {
         this.eventRepository = eventRepository;
     }
 
+
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(@AuthenticationPrincipal CurrentUser customUser, Model model) {
         User entityUser = customUser.getUser();

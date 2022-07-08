@@ -30,6 +30,7 @@
 
             <td><a href="<c:url  value="/event/remove?id=${event.id}"/> ">Usuń </a>
                 <a href="<c:url  value="/event/edit?id=${event.id}"/> ">Edytuj </a>
+                <a href="<c:url  value="/barcodes/zxing?id=${event.id}"/> ">Generuj Zaproszenie elektrycznwe</a>
             </td>
 
         </tr>

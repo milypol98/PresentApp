@@ -3,6 +3,7 @@ package pl.siwiec.users;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +11,8 @@ import pl.siwiec.present.PresentRepository;
 import pl.siwiec.seciurity.CurrentUser;
 import pl.siwiec.seciurity.LoginController;
 import pl.siwiec.seciurity.UserService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/user")
@@ -40,8 +43,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save(User user  ) {
+    public String save(@Valid User user, BindingResult result) {
         userService.saveUser(user);
+        if(result.hasErrors()){
+            return "redirect: /add";
+        }
         return "redirect:/login";
     }
 

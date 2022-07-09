@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.BufferedImageHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import javax.validation.Validator;
 import java.awt.image.BufferedImage;
 
 @SpringBootApplication
@@ -18,6 +20,10 @@ public class Application {
 	@Bean
 	public HttpMessageConverter<BufferedImage> createImageHttpMessageConverter() {
 		return new BufferedImageHttpMessageConverter();
+	}
+	@Bean
+	public Validator validator() {
+		return new LocalValidatorFactoryBean();
 	}
 
 }

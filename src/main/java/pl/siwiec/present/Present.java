@@ -5,6 +5,7 @@ import lombok.Setter;
 import pl.siwiec.users.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Getter
@@ -14,8 +15,13 @@ public class Present {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank
+    @Size(min = 2, max =50)
     private String title;
+    @Size(min = 2, max =50)
     private String description;
+    @Min(0)
+    @Max(10)
     private int rainting;
     @ManyToOne
     private User user;

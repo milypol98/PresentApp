@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Title</title>
+
 </head>
 <body>
 <H1>WITAJ</H1>
@@ -22,7 +23,7 @@
 <br/>
 <a href="<c:url  value="/present/list"/> ">moje prezenty </a>
 <br/>
-<a href="<c:url  value="/user/list"/> ">moji uzytkownicy </a>
+<a href="<c:url  value="/admin/list"/> ">moji uzytkownicy </a>
 
 
 <table>

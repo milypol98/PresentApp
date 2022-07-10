@@ -3,6 +3,7 @@ package pl.siwiec.event;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.siwiec.users.User;
 
 import javax.persistence.*;
@@ -18,16 +19,18 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotBlank
-    @Size(min = 2, max =50)
+//    @NotBlank
+//    @Size(min = 2, max =50)
     private String title;
-    @Size(min = 2, max =50)
+//    @Size(min = 2, max =50)
     private String description;
-    @Size(min = 0, max =255)
+//    @Size(min = 0, max =255)
     private String location;
-    @Future
+//    @Future
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
-    @NotBlank
+//    @NotBlank
     @ManyToOne
     private User user;
 

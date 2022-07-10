@@ -16,10 +16,10 @@ public class AppGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @NotBlank
-    @Size(min = 2, max =50)
+//    @NotBlank
+//    @Size(min = 2, max =50)
     private String name;
-    @Size(min = 0, max =5000)
+//    @Size(min = 0, max =5000)
     private String description;
 
 

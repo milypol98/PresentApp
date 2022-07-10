@@ -19,5 +19,6 @@
     <input type="submit" value="Update">
 </form:form>
 <a href="<c:url  value="/user/removeUser"/> ">Usuń </a>
+<a href="<c:url  value="/user/editPassword"/> ">zmiana hasła </a>
 </body>
 </html>

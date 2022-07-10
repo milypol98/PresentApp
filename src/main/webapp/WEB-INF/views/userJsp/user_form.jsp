@@ -10,10 +10,15 @@
 <form:hidden path="id"/>
 <label>
     username: <form:input path="username"/><br>
-    password:<form:input path="password"/><br>
+
     email: <form:input path="email"/><br>
     name: <form:input path="name"/><br>
     surname: <form:input path="surname"/><br>
     age: <form:input path="age"/><br>
-    sex: <form:input path="sex"/><br>
+    sex: <br>
+    Male: <form:radiobutton path="sex" value="MALE"/>
+    Female: <form:radiobutton path="sex" value="FEMALE"/>
+    Other: <form:radiobutton path="sex" value="Other"/>
+
+
 </label>

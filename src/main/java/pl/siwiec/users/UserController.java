@@ -43,11 +43,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save(@Valid User user, BindingResult result) {
+    public String save( User user) {
         userService.saveUser(user);
-        if(result.hasErrors()){
-            return "redirect: /add";
-        }
         return "redirect:/login";
     }
 
@@ -72,5 +69,16 @@ public class UserController {
         User entityUser = customUser.getUser();
         userRepository.deleteById(entityUser.getId());
         return "redirect:/";
+    }
+    @RequestMapping(value = "/editPassword", method = RequestMethod.GET)
+    public String editPassword(@AuthenticationPrincipal CurrentUser customUser, Model model) {
+        User entityUser = customUser.getUser();
+        model.addAttribute("pass", userRepository.findById(entityUser.getId()));
+        return "userJsp/passwordUpdate";
+    }
+    @RequestMapping(value = "/editPassword", method = RequestMethod.POST)
+    public String updatePassword(User user) {
+        userRepository.save(user);
+        return "redirect:/user/";
     }
 }

@@ -15,6 +15,7 @@
     name: <form:input path="name"/><br>
     surname: <form:input path="surname"/><br>
     age: <form:input path="age"/><br>
+    new password:<form:password path="password"/><br>
     sex: <br>
     Male: <form:radiobutton path="sex" value="MALE"/>
     Female: <form:radiobutton path="sex" value="FEMALE"/>

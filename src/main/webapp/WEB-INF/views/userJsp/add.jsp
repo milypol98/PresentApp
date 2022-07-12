@@ -16,7 +16,6 @@
 <h1>Rejstracja</h1>
 <form:form method="post" modelAttribute="user">
     <%@include file = "user_form.jsp"%>
-    password:<form:input path="password"/><br>
     <input type="submit" value="Update">
 </form:form>
 

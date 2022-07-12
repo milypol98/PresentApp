@@ -1,18 +1,19 @@
 package pl.siwiec.users;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.siwiec.present.PresentRepository;
+import pl.siwiec.role.Role;
+import pl.siwiec.role.RoleRepository;
 import pl.siwiec.seciurity.CurrentUser;
-import pl.siwiec.seciurity.LoginController;
 import pl.siwiec.seciurity.UserService;
 
-import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.HashSet;
 
 @Controller
 @RequestMapping("/user")
@@ -20,13 +21,17 @@ public class UserController {
     private final UserRepository userRepository;
     private final PresentRepository presentRepository;
     private final UserService userService;
+    private final RoleRepository roleRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
 
-    public UserController(UserRepository userRepository, PresentRepository presentRepository, UserService userService) {
+
+    public UserController(UserRepository userRepository, PresentRepository presentRepository, UserService userService, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.presentRepository = presentRepository;
         this.userService = userService;
-
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
     @RequestMapping (method = RequestMethod.GET)
     public String home(@AuthenticationPrincipal CurrentUser customUser, Model model) {
@@ -60,6 +65,9 @@ public class UserController {
     }
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String updateUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        Role userRole = roleRepository.findByName("ROLE_USER");
+        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
         return "redirect:/user/";
     }
@@ -70,15 +78,5 @@ public class UserController {
         userRepository.deleteById(entityUser.getId());
         return "redirect:/";
     }
-    @RequestMapping(value = "/editPassword", method = RequestMethod.GET)
-    public String editPassword(@AuthenticationPrincipal CurrentUser customUser, Model model) {
-        User entityUser = customUser.getUser();
-        model.addAttribute("pass", userRepository.findById(entityUser.getId()));
-        return "userJsp/passwordUpdate";
-    }
-    @RequestMapping(value = "/editPassword", method = RequestMethod.POST)
-    public String updatePassword(User user) {
-        userRepository.save(user);
-        return "redirect:/user/";
-    }
+
 }

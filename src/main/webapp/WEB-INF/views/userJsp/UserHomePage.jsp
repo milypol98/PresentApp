@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Title</title>
-
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
 <H1>WITAJ</H1>

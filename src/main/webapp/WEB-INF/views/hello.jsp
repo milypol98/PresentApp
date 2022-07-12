@@ -11,6 +11,7 @@
 <html>
 <head>
     <title></title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
 <h1><spring:message code="app.title"/></h1>

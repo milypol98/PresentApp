@@ -3,11 +3,14 @@ package pl.siwiec.present;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.siwiec.seciurity.CurrentUser;
 import pl.siwiec.users.User;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/present")
@@ -31,7 +34,10 @@ public class PresentController {
     }
 //niewiem czy to nie troszke przedobrzone
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save(@AuthenticationPrincipal CurrentUser customUser,Present present) {
+    public String save(@AuthenticationPrincipal  CurrentUser customUser,@Valid Present present, BindingResult result) {
+        if (result.hasErrors()){
+            return "presentJsp/add";
+        }
         User entityUser = customUser.getUser();
         present.setUser(entityUser);
         presentationRepository.save(present);
@@ -52,7 +58,12 @@ public class PresentController {
         return "presentJsp/edit";
     }
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String update(Present present) {
+    public String update(@AuthenticationPrincipal  CurrentUser customUser,@Valid Present present , BindingResult result) {
+        if (result.hasErrors()) {
+            return "presentJsp/edit";
+        }
+        User entityUser = customUser.getUser();
+        present.setUser(entityUser);
         presentationRepository.save(present);
         return "redirect:/present/list";
     }

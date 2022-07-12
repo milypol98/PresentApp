@@ -11,13 +11,20 @@
 <head>
     <title>Title</title>
 
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
 <form method="post">
-    <div><label > User Name : <input type="text" name="username" class="login"/> </label></div>
-    <div><label class="login"> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <div class="main">
+        <p class="sign" align="center">Sign in</p>
+        <div><label > <input type="text" name="username"class="login" placeholder="User Name" /> </label></div>
+        <form class="form1"></form>
+        <div><label > <input type="password" name="password" class="pass" placeholder="Password"/> </label></div>
+        <div class="sign"><input type="submit" value="Sign In" class="submit"/></div>
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </div>
+
 </form>
 </body>
 </html>

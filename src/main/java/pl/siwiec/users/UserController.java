@@ -4,6 +4,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.siwiec.present.PresentRepository;
@@ -12,6 +13,7 @@ import pl.siwiec.role.RoleRepository;
 import pl.siwiec.seciurity.CurrentUser;
 import pl.siwiec.seciurity.UserService;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -48,7 +50,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save( User user) {
+    public String save(@Valid  User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "userJsp/add";
+        }
         userService.saveUser(user);
         return "redirect:/login";
     }
@@ -64,7 +69,10 @@ public class UserController {
         return "userJsp/edit";
     }
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
-    public String updateUser(User user) {
+    public String updateUser(@Valid  User user , BindingResult result) {
+        if (result.hasErrors()) {
+            return "userJsp/edit";
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Role userRole = roleRepository.findByName("ROLE_USER");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));

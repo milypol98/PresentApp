@@ -14,11 +14,18 @@
     <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
-<h1><spring:message code="app.title"/></h1>
+<div class="main">
+    <form class="form1"></form>
+    <h1 class="apptitle"><spring:message code="app.title"/></h1>
+<label class="submitLogin">
+    <a href="<c:url  value="/login"/>">Sign in</a>
+</label>
+    <label class="submitRegistry">
+    <a href="<c:url  value="/user/add"/> ">Sign up</a>
+    </label>
 
-<a href="<c:url  value="/login"/>">login</a> <br>
 
-<a href="<c:url  value="/user/add"/> ">rejstracja</a> <br>
+</div>
 
 
 </body>

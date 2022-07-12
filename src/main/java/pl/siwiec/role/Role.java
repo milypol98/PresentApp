@@ -2,6 +2,7 @@ package pl.siwiec.role;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,10 +14,11 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Entity
+@ToString
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-//    @NotBlank
+    @NotBlank
     private String name;
 }

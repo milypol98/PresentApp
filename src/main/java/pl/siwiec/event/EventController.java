@@ -3,12 +3,15 @@ package pl.siwiec.event;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.siwiec.present.Present;
 import pl.siwiec.seciurity.CurrentUser;
 import pl.siwiec.users.User;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/event")
@@ -40,7 +43,10 @@ public class EventController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String save(@AuthenticationPrincipal CurrentUser customUser,Event event  ) {
+    public String save(@AuthenticationPrincipal  CurrentUser customUser, @Valid Event event, BindingResult result) {
+        if(result.hasErrors()){
+            return "eventJsp/add";
+        }
         User entityUser = customUser.getUser();
         event.setUser(entityUser);
         eventRepository.save(event);
@@ -61,7 +67,12 @@ public class EventController {
         return "eventJsp/edit";
     }
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String update(Event event) {
+    public String update(@AuthenticationPrincipal  CurrentUser customUser,@Valid Event event ,  BindingResult result) {
+        if (result.hasErrors()){
+            return "eventJsp/edit";
+        }
+        User entityUser = customUser.getUser();
+        event.setUser(entityUser);
         eventRepository.save(event);
         return "redirect:/event/list";
     }

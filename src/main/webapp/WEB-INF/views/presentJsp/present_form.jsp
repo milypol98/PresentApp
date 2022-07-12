@@ -4,7 +4,10 @@
 
 <label>
     title: <form:input path="title"/><br>
+    <form:errors path="title"/><br>
+
     description: <form:textarea path="description" rows="5" cols="30"/><br>
+    <form:errors path="description"/><br>
     <br>
     <br>
     rainting:

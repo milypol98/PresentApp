@@ -15,13 +15,11 @@ public class Present {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-//    @NotBlank
-//    @Size(min = 2, max =50)
+    @NotBlank
+    @Size(min = 2, max =50)
     private String title;
-//    @Size(min = 2, max =50)
+    @Size(min = 2, max =500)
     private String description;
-//    @Min(0)
-//    @Max(10)
     private int rainting;
     @ManyToOne
     private User user;

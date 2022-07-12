@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.siwiec.present.Present;
 import pl.siwiec.users.User;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,20 +21,20 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-//    @NotBlank
-//    @Size(min = 2, max =50)
+    @NotBlank
+    @Size(min = 2, max =50)
     private String title;
-//    @Size(min = 2, max =50)
+    @Size(min = 2, max =500)
     private String description;
-//    @Size(min = 0, max =255)
+    @Size(min = 1, max =255)
     private String location;
-//    @Future
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
-//    @NotBlank
+
     @ManyToOne
     private User user;
+    @OneToMany
+    private List<Present> present;
 
 
 

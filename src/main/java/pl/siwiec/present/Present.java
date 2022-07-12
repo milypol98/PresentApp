@@ -2,6 +2,8 @@ package pl.siwiec.present;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import pl.siwiec.event.Event;
 import pl.siwiec.users.User;
 
 import javax.persistence.*;
@@ -10,6 +12,7 @@ import javax.validation.constraints.*;
 @Entity
 @Getter
 @Setter
+@ToString
 public class Present {
 
     @Id
@@ -23,6 +26,8 @@ public class Present {
     private int rainting;
     @ManyToOne
     private User user;
+
+
 
 
 }

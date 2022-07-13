@@ -37,7 +37,7 @@ public class EventController {
         model.addAttribute("event",eventRepository.eventUser(entityUser.getId()));
         return "eventJsp/list";
     }
-    //Mocno przekombinowane trzeba poprawic
+    //Mocno przekombinowane trzeba poprawice
     @RequestMapping(value = "/listDetalis", method = RequestMethod.GET)
     public String listDetalist(@RequestParam Long id, Model model) {
         List<Long> list = new ArrayList<>();
@@ -69,7 +69,7 @@ public class EventController {
         return "redirect:/event/list";
     }
 
-    //Nie usuwa tych co sa powiozane z artykułem
+    //Usuwa w jedna strone dobrze a w druga wszystko wypierdala
     @RequestMapping(value = "/remove", method = RequestMethod.GET)
     public String remove(@RequestParam Long id) {
         eventRepository.deleteById(id);

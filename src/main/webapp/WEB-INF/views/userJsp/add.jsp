@@ -11,13 +11,17 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
+
 </head>
 <body>
-<h1>Rejstracja</h1>
+<h1 class="apptitle">Rejstracja</h1>
+<div class="mainUserEdit">
 <form:form method="post" modelAttribute="user">
     <%@include file = "user_form.jsp"%>
-    <input type="submit" value="Update">
+    <input class="submit" type="submit" value="Update">
 </form:form>
+    </div>
 
 </body>
 </html>

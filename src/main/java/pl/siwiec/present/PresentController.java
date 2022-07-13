@@ -11,6 +11,8 @@ import pl.siwiec.seciurity.CurrentUser;
 import pl.siwiec.users.User;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/present")
@@ -20,6 +22,13 @@ public class PresentController {
 
     public PresentController(PresentRepository presentationRepository) {
         this.presentationRepository = presentationRepository;
+    }
+    @RequestMapping(value = "/details", method = RequestMethod.GET)
+    public String details(@RequestParam Long id,Model model) {
+        List<Long> list = new ArrayList<>();
+        list.add(id);
+        model.addAttribute("presentDetails", presentationRepository.findAllById(list));
+        return "presentJsp/detalis";
     }
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(@AuthenticationPrincipal CurrentUser customUser,Model model) {

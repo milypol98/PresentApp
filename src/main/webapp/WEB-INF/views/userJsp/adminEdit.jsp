@@ -11,9 +11,13 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
+
 </head>
 <body>
 <h1>Edytuj siebie</h1>
+
+
 <form:form method="post" modelAttribute="user">
     <%@include file = "user_form.jsp"%>
     roles: <form:input path="roles"/><br>

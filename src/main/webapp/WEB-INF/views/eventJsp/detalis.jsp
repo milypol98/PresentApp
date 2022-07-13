@@ -11,29 +11,44 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
-<table>
 
-    <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>location</th>
-        <th>date</th>
-        <th>presents</th>
-    </tr>
+
+<div class="mainDetalist">
+    <div class="apptitle">
+        <a href="<c:url  value="/user/"/> ">MAIN PAGE</a>
+    </div>
     <c:forEach var="event" items="${eventDetalist}">
-        <tr>
-            <td>${event.title}</td>
-            <td>${event.description}</td>
-            <td>${event.location}</td>
-            <td>${event.date}</td>
-           <c:forEach var="present" items="${userPresent}">
+        <div class="edit">
+            <td>TITLE:<br> ${event.title}</td><br>
+        </div>
+        <div class="edit">
+        <td>DESCRIPTION:<br> ${event.description}</td>
+        </div>
+        <div class="edit">
+        <td>LOCATION:<br> ${event.location}</td>
+         </div>
+        <div class="edit">
+        <td>DATE:<br>${event.date}</td>
+        </div>
+    <div class="edit">
+        LIST PRESENTS:<BR>
+        <c:forEach var="present" items="${userPresent}">
             <td>${present.title}</td>
-            </c:forEach>
-        </tr>
+            <a href="<c:url  value="/present/details?id=${present.id}"/> ">DETALIS </a>
+            <br>
+        </c:forEach>
+    </div>
     </c:forEach>
-</table>
+
+<div class="apptitle">
+    <a href="<c:url  value="/barcodes/zxing"/> ">Generuj Zaproszenie elektrycznwe</a>
+
+</div>
+
+</div>
 
 
 </body>

@@ -9,28 +9,46 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <form:hidden path="id"/>
 <label>
+    <div class="edit">
+        username: <form:input path="username"/><br>
+        <form:errors path="username"/><br>
+</div>
 
-    username: <form:input path="username"/><br>
-    <form:errors path="username"/><br>
+
+    <div class="edit">
+        email: <form:input path="email"/><br>
+        <form:errors path="email"/><br>
+    </div>
+
+    <div class="edit">
+        name: <form:input path="name"/><br>
+        <form:errors path="name"/><br>
+    </div>
 
 
-    email: <form:input path="email"/><br>
-    <form:errors path="email"/><br>
+    <div class="edit">
+        surname: <form:input path="surname"/><br>
+        <form:errors path="surname"/><br>
+    </div>
 
-    name: <form:input path="name"/><br>
-    <form:errors path="name"/><br>
 
-    surname: <form:input path="surname"/><br>
-    <form:errors path="surname"/><br>
+    <div class="edit">
+        age: <br> <form:input path="age"/><br>
+        <form:errors path="age"/><br>
+    </div>
 
-    age: <form:input path="age"/><br>
-    <form:errors path="age"/><br>
 
-    new password:<form:password path="password"/><br><br>
-    sex: <br>
-    Male: <form:radiobutton path="sex" value="MALE"/>
-    Female: <form:radiobutton path="sex" value="FEMALE"/>
-    Other: <form:radiobutton path="sex" value="Other"/>
+    <div class="edit">
+        new password:<form:password path="password"/><br><br>
+    </div>
+
+    <div class="edit">
+        sex:<br>
+        Male: <form:radiobutton path="sex" value="MALE"/>
+        Female: <form:radiobutton path="sex" value="FEMALE"/><br>
+        Other: <form:radiobutton path="sex" value="Other"/>
+    </div>
+
 
 
 

@@ -11,13 +11,23 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
-<h1>Edytuj siebie</h1>
-<form:form method="post" modelAttribute="user">
-    <%@include file = "user_form.jsp"%>
-    <input type="submit" value="Update">
-</form:form>
-<a href="<c:url  value="/user/removeUser"/> ">Usuń </a>
+<h1 class="apptitle">EDIT</h1>
+<a class="submitSpecial" href="<c:url  value="/user/"/> ">Strona gówna  </a>
+<div class="mainUserEdit">
+    <form:form method="post" modelAttribute="user">
+        <%@include file = "user_form.jsp"%>
+        <input class="submit" type="submit" value="Update">
+    </form:form>
+    <div class="apptitle">
+        <a href="<c:url  value="/user/removeUser"/> ">DELETE ACCOUNT </a>
+    </div>
+
+</div>
+
+
+
 </body>
 </html>

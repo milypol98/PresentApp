@@ -13,36 +13,39 @@
     <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
-<H1>WITAJ</H1>
-<form action="<c:url value="/logout"/>" method="post">
-    <input class="fa fa-id-badge" type="submit" value="Wyloguj">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
+<H1>WELCOME</H1>
+
 <br>
-<a href="<c:url  value="/event/list"/> ">moje eventy </a>
-<br/>
-<a href="<c:url  value="/present/list"/> ">moje prezenty </a>
-<br/>
-<a href="<c:url  value="/admin/list"/> ">moji uzytkownicy </a>
+<a class="submitSpecial" href="<c:url  value="/event/list" /> ">MY EVENTS</a>
+
+<a class="submitSpecial" href="<c:url  value="/present/list"/> ">MY PRESENTS</a>
+
+<a class="submitSpecial"  href="<c:url  value="/user/editUser"/> ">SETTINGS</a>
+
+<a class="submitSpecial" href="<c:url  value="/admin/list"/> ">moji uzytkownicy </a>
 
 
-<table>
+<table class="top5">
     <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>rainting</th>
+        <th>TITLE</th><th>RAINTING</th><br/>
+        <th>DESCRIPTION</th>
+
     </tr>
     <c:forEach var="present" items="${present}">
         <tr>
-            <td>${present.title}</td>
+            <td>${present.title}</td><td>${present.rainting}</td>
+            <br/>
+
             <td>${present.description}</td>
-            <td>${present.rainting}</td>
+
         </tr>
     </c:forEach>
 </table>
 <br/>
-<a href="<c:url  value="/user/editUser"/> ">Ustawienia konta  </a>
-
+<form  action="<c:url value="/logout"/>" method="post">
+    <input class="fa fa-id-badge" type="submit" value="LOG OUT">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
 
 </body>
 </html>

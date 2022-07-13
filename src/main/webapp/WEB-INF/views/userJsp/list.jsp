@@ -11,16 +11,19 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
+
 </head>
 <body>
-<table>
+<a class="submitSpecial" href="<c:url  value="/user/"/> ">Strona gówna  </a>
+<table class="top5">
     <tr>
         <th>name</th>
         <th>surname</th>
         <th>age</th>
         <th>email</th>
         <th>username</th>
-        <th>password</th>
+
         <th>role</th>
         <th>sex</th>
 
@@ -32,7 +35,6 @@
             <td>${user.age}</td>
             <td>${user.email}</td>
             <td>${user.username}</td>
-            <td>${user.password}</td>
             <td>${user.roles}</td>
             <td>${user.sex}</td>
 

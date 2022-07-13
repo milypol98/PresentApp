@@ -11,14 +11,21 @@
 
 <html>
 <head>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
     <title>Title</title>
 </head>
 <body>
-<h1>Edytuj present</h1>
-<a href="<c:url  value="/user/"/> ">Strona gówna  </a>
-<form:form method="post" modelAttribute="present">
-    <%@include file = "present_form.jsp"%>
-    <input type="submit" value="Update">
-</form:form>
+<h1 class="apptitle">GIFT EDIT</h1>
+
+<div class="main">
+    <div class="apptitle">
+        <a href="<c:url  value="/user/"/> ">MAIN PAGE</a>
+    </div>
+    <form:form method="post" modelAttribute="present">
+        <%@include file = "present_form.jsp"%>
+    <input class="submit" type="submit" value="Update">
+    </form:form>
+    </div>
+
 </body>
 </html>

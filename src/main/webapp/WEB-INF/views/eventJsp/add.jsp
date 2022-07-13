@@ -11,13 +11,21 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
-<h1>Dodaj present</h1>
-<form:form method="post" modelAttribute="event">
-    <%@include file = "event_form.jsp"%>
-    <input type="submit" value="Update">
-</form:form>
+
+<h1 class="apptitle">ADD EVENTS</h1>
+<div class="mainEvents">
+    <div class="apptitle">
+        <a href="<c:url  value="/user/"/> ">MAIN PAGE</a>
+    </div>
+    <form:form method="post" modelAttribute="event">
+        <%@include file = "event_form.jsp"%>
+        <input class="submit" type="submit" value="Update">
+    </form:form>
+</div>
+
 
 </body>
 </html>

@@ -10,11 +10,12 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
-<table>
-    <a href="<c:url  value="/event/add"/> ">Dodaj Event </a><br/>
-    <a href="<c:url  value="/user/"/> ">Strona gówna  </a><br/>
+<table class="top5">
+    <a class="submitSpecial" href="<c:url  value="/event/add"/> ">Dodaj Event </a>
+    <a class="submitSpecial" href="<c:url  value="/user/"/> ">Strona gówna  </a>
 
     <tr>
         <th>title</th>
@@ -29,8 +30,8 @@
             <td>${event.location}</td>
             <td>${event.date}</td>
 
-            <td><a href="<c:url  value="/event/remove?id=${event.id}"/> ">Usuń </a>
-                <a href="<c:url  value="/event/edit?id=${event.id}"/> ">Edytuj </a>
+            <td><a href="<c:url  value="/event/remove?id=${event.id}"/> ">Usuń | </a>
+                <a href="<c:url  value="/event/edit?id=${event.id}"/> ">Edytuj | </a>
 <%--                <a href="<c:url  value="/barcodes/zxing?id=${event.id}"/> ">Generuj Zaproszenie elektrycznwe</a>--%>
                 <a href="<c:url  value="/event/listDetalis?id=${event.id}"/> ">Detalis </a>
             </td>

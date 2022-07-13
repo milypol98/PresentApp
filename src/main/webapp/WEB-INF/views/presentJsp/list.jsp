@@ -10,15 +10,17 @@
 <html>
 <head>
     <title>Title</title>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
 </head>
 <body>
-<table>
-    <a href="<c:url  value="/present/add"/> ">Dodaj Prezent </a>
-    <br/>
-    <a href="<c:url  value="/user/"/> ">Strona gówna  </a>
+<a class="submitSpecial" href="<c:url  value="/present/add"/> ">Dodaj Prezent </a>
+<a class="submitSpecial" href="<c:url  value="/user/"/> ">Strona gówna  </a>
+<table class="top5">
+
     <tr>
-        <th>title</th>
-        <th>description</th>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+        <th>RAINTING</th>
     </tr>
     <c:forEach var="present" items="${present}">
         <tr>

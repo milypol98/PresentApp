@@ -11,22 +11,32 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <form:hidden path="id"/>
 <label>
-    title: <form:input path="title"/><br>
+    <div class="edit">
+    title:<br> <form:input path="title"/><br>
     <form:errors path="title"/><br>
+    </div>
 
-
-    date: <form:input path="date" cssClass="form-control" />
+    <div class="edit">
+    date:<br> <form:input path="date" cssClass="form-control" />
     <form:errors path="date"/><br>
+    </div>
 
+    <div class="edit">
+        description:<br> <form:textarea path="description" cssClass="form-control" rows="5" cols="30" />
+        <form:errors path="description"/><br>
+    </div>
+
+    <div class="edit">
     location: <form:input path="location"/><br>
     <form:errors path="location"/><br>
+    </div>
 
 <%--    <c:forEach items="${userPresent}" var="userPresent">--%>
 <%--        --%>
 <%--    </c:forEach>--%>
+    <div class="edit">
     <form:checkboxes items="${userPresent}" path="presents" itemLabel="title"/><br>
-
-    <a href="<c:url  value="/user/"/> ">Strona gówna  </a>
+    </div>
 
 </label>
 

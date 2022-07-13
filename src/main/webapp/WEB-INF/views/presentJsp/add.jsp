@@ -10,15 +10,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <style><%@include file="/WEB-INF/views/css/style.css"%></style>
     <title>Title</title>
 </head>
 <body>
-<h1>Dodaj present</h1>
-<a href="<c:url  value="/user/"/> ">Strona gówna  </a>
+
+<h1 class="apptitle"> ADD PRESENTS</h1>
+<div class="main">
+<div class="apptitle">
+<a href="<c:url  value="/user/"/> ">MAIN PAGE</a>
+</div>
 <form:form method="post" modelAttribute="present">
     <%@include file = "present_form.jsp"%>
-    <input type="submit" value="Update">
+    <input class="submit" type="submit" value="Update">
 </form:form>
-
+</div>
 </body>
 </html>
